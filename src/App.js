@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+
 function App() {
   return (
     <div className="App">
@@ -11,6 +13,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
+          style={{marginBottom: '16px'}}
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
@@ -18,6 +21,7 @@ function App() {
         >
           Learn React
         </a>
+        <img src={'logo-cached.svg'} className="App-logo" alt="service-worker-logo" />
       </header>
     </div>
   );
