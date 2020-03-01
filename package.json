@@ -1,7 +1,7 @@
 {
   "name": "react-pwa",
   "version": "0.1.0",
-  "homepage": "https://or13.github.io/react-pwa",
+  "homepage": "https://pwa.transmute.world",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -10,14 +10,15 @@
     "cra-append-sw": "^2.7.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-github-corner": "^2.3.0",
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "react-scripts start && cra-append-sw --mode dev ./custom-sw.js",
-    "build": "react-scripts build && cra-append-sw ./custom-sw.js",
+    "start": "react-scripts start && cra-append-sw --mode dev ./public/sw-fetch-interceptors.js",
+    "build": "react-scripts build && cra-append-sw ./public/sw-fetch-interceptors.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "cp ./build/index.html ./build/404.html && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
