@@ -22,13 +22,52 @@ self.addEventListener('fetch', (event) => {
           );
     }
 
-    if (event.request.url === 'https://pwa.transmute.world/kms/keystore'){
+    
+
+    if (event.request.url === 'https://pwa.transmute.world/.well-known/edv-configuration'){
+
+        const res = {
+            id: 'did:example:123',
+        }
         event.respondWith(
             // magic goes here
-            new Response(JSON.stringify({yolo: 1}, null, 2), {
-                headers: { 'Content-Type': 'application/json',  }
+            new Response(JSON.stringify(res, null, 2), {
+                headers: { 'Content-Type': 'application/json' }
               })
           );
     }
-    
+
+    if (event.request.url === 'http://localhost:3000/kms/keystores'){
+        const res = {
+            id: 'http://localhost:3000/kms/keystores/0',
+            sequence: 0,
+            controller: 'did:example:123',
+            invoker: 'did:example:123',
+            delegator: 'did:example:123'
+
+        }
+        event.respondWith(
+            // magic goes here
+            new Response(JSON.stringify(res, null, 2), {
+                headers: { 'Content-Type': 'application/json' }
+              })
+          );
+    }
+
+    if (event.request.url === 'http://localhost:3000/kms/keystores/0/keys'){
+
+        const res = {
+            id: 'http://localhost:3000/kms/keystores/0/keys/0',
+            type: 'X25519KeyAgreementKey2019',
+            controller: 'did:example:123',
+         
+        }
+
+        event.respondWith(
+            // magic goes here
+            new Response(JSON.stringify(res, null, 2), {
+                headers: { 'Content-Type': 'application/json' }
+              })
+          );
+    }
 });
